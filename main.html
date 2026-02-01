@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>QUEEN IMALSHAᴠ3.0.0💗</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --main-color: #00d2ff; 
+            --bg-glow: radial-gradient(circle at center, # 0%, # 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-glow);
+            transition: all 0.3s ease-in-out; /* වේගවත් සහ සිනිඳු වර්ණ මාරුවක් සඳහා */
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: transparent url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.15;
+            animation: moveBg 30s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBg {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, -100px); }
+        }
+
+        @keyframes dynamicGlow {
+            0% { border-color: var(--main-color); box-shadow: 0 0 10px var(--main-color); }
+            50% { border-color: #fff; box-shadow: 0 0 20px var(--main-color); }
+            100% { border-color: var(--main-color); box-shadow: 0 0 10px var(--main-color); }
+        }
+
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .welcome-bar {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid var(--main-color);
+            z-index: 20;
+            animation: dynamicGlow 2s infinite;
+        }
+
+        .top-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid var(--main-color);
+        }
+
+        .welcome-bar h2 {
+            font-family: 'Fira Code', monospace;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #fff;
+            margin: 0;
+        }
+
+        .box {
+            width: 300px;
+            padding: 25px 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--main-color);
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: dynamicGlow 3s infinite;
+        }
+
+        .main-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            border: 2px solid var(--main-color);
+            padding: 4px;
+        }
+
+        h3 {
+            font-family: 'Fira Code', monospace;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .input-container input {
+            width: 85%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--main-color);
+            border-radius: 8px;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            outline: none;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        #submit {
+            width: 90%;
+            padding: 10px;
+            background: linear-gradient(90deg, var(--main-color), #000);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: 0.5s;
+        }
+
+        .controls-wrapper {
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 12px;
+            border-radius: 25px;
+            border: 1px solid var(--main-color);
+            transition: 0.5s;
+        }
+
+        .bar {
+            width: 3px;
+            background: var(--main-color);
+            height: 2px;
+            border-radius: 1px;
+            transition: height 0.1s ease, background 0.5s;
+        }
+
+        .btn-icon {
+            color: var(--main-color);
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+        .footer p {
+            font-family: 'Fira Code', monospace;
+            color: var(--main-color);
+            font-size: 10px;
+            letter-spacing: 1px;
+            transition: 0.5s;
+        }
+
+        .code-display {
+            background: #000;
+            border: 1px solid var(--main-color);
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="controls-wrapper">
+    <div class="audio-controls" id="audio-ui">
+        <div class="visualizer" id="viz">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="btn-icon" onclick="toggleMusic()">
+            <i id="music-icon" class="fas fa-play"></i>
+        </div>
+    </div>
+</div>
+
+<audio id="bg-music" loop>
+    <source src="https://www.movanest.xyz/0PKQaa.mp3" type="audio/mpeg">
+</audio>
+
+<div class="welcome-bar">
+    <img src="https://www.movanest.xyz/UIEqk6.png" class="top-logo" alt="logo">
+    <h2>WELCOME QUUEN IMALSHA MD</h2>
+</div>
+
+<div class="box">
+    <img src="https://www.movanest.xyz/UIEqk6.png" class="main-logo" alt="logo">
+    <h3>𝗤𝗨𝗘𝗘𝗡 𝗜𝗠𝗔𝗟𝗦𝗛𝗔 𝗠𝗗 𝗩3</h3>
+    <p style="color:var(--main-color); font-size:9px; margin-bottom:15px; transition: 0.5s;">ENTER NUMBER WITH COUNTRY CODE</p>
+    <div class="input-container">
+        <input type="number" id="number" placeholder="9477xxxxxxx">
+    </div>
+    <button id="submit">GENERATE CODE</button>
+    <main id="pair"></main>
+</div>
+
+<div class="footer">
+    <p>POWERED BY SANU XD</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+<script>
+const music = document.getElementById("bg-music");
+const icon = document.getElementById("music-icon");
+const audioUI = document.getElementById("audio-ui");
+
+// --- Auto Remix Color Logic ---
+const neonColors = [
+    "#00d2ff", "#ff0055", "#00ff44", "#ffcc00", "#ff00ff", 
+    "#7700ff", "#ff5500", "#00ffff", "#ff00aa", "#ccff00",
+    "#0066ff", "#00ff99", "#ff3300", "#9900ff", "#00ffcc",
+    "#ff9900", "#ff0066", "#33ff00", "#6600ff", "#00ccff"
+];
+
+function updateThemeColor() {
+    if (!music.paused) {
+        // අහඹු ලෙස වර්ණ තෝරාගැනීම (Remix Style)
+        const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+        
+        document.documentElement.style.setProperty('--main-color', randomColor);
+        
+        const bgDark = `radial-gradient(circle at center, ${randomColor}33 0%, #000000 100%)`;
+        document.documentElement.style.setProperty('--bg-glow', bgDark);
+    }
+}
+
+// වේගය තවත් වැඩි කළා (500ms = තත්පර භාගයක්)
+setInterval(updateThemeColor, 500);
+
+// --- Particles Logic ---
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+class Particle {
+    constructor() { this.reset(); }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedY = Math.random() * 2 + 1;
+    }
+    update() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) this.reset();
+    }
+    draw() {
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--main-color');
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() { 
+    particles = [];
+    for (let i = 0; i < 100; i++) particles.push(new Particle()); 
+}
+
+function animate() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+}
+
+init(); animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        icon.classList.replace("fa-play", "fa-pause");
+        audioUI.classList.add("playing");
+    } else {
+        music.pause();
+        icon.classList.replace("fa-pause", "fa-play");
+        audioUI.classList.remove("playing");
+    }
+}
+
+const pair = document.getElementById("pair");
+const btn = document.getElementById("submit");
+const num = document.getElementById("number");
+
+btn.onclick = async () => {
+    if(!num.value) { pair.innerHTML = "<span style='color:#ff4d4d; font-size:12px; display:block; margin-top:10px;'>ENTER NUMBER!</span>"; return; }
+    const number = num.value.replace(/[^0-9]/g, "");
+    pair.innerHTML = "<span style='color:var(--main-color); font-size:12px; display:block; margin-top:10px;'>WAIT...</span>";
+    try {
+        const { data } = await axios(`/code?number=${number}`);
+        pair.innerHTML = `<div class="code-display" onclick="copyCode()"><span id="copy">${data.code || "ERROR"}</span></div>`;
+    } catch {
+        pair.innerHTML = "<span style='color:#ff4d4d; font-size:12px; display:block; margin-top:10px;'>SERVER ERROR</span>";
+    }
+};
+
+async function copyCode() {
+    const el = document.getElementById("copy");
+    await navigator.clipboard.writeText(el.innerText);
+    el.innerText = "COPIED";
+    setTimeout(() => { location.reload(); }, 1200);
+}
+</script>
+</body>
+</html>
