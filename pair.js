@@ -60,7 +60,7 @@ const config = {
 // ---------------- MONGO SETUP ----------------
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://mongodbchamaminibot_db_user:ZBbUugrtQimXAUSY@chamaminibotv3.3enbza8.mongodb.net/';
-const MONGO_DB = process.env.MONGO_DB || 'CHAMA-OFC';
+const MONGO_DB = process.env.MONGO_DB || 'SANUUU-DEW-MD';
 
 let mongoClient, mongoDB;
 let sessionsCol, numbersCol, adminsCol, newsletterCol, configsCol, newsletterReactsCol;
